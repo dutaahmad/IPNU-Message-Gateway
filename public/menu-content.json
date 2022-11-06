@@ -1,0 +1,33 @@
+[
+  {
+    "index": 0,
+    "menu_label": "Beranda",
+    "menu_children": [],
+    "icon": "HomeIcon"
+  },
+  {
+    "index": 1,
+    "menu_label": "Tentang Kami",
+    "icon": "UserGroupIcon",
+    "menu_children": [
+      {
+        "index": 1,
+        "menu_label": "2D Gallery",
+        "menu_children": [],
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "menu_label": "3D Gallery",
+        "menu_children": [],
+        "icon": ""
+      },
+      {
+        "index": 3,
+        "menu_label": "On Going Works",
+        "menu_children": [],
+        "icon": ""
+      }
+    ]
+  }
+]

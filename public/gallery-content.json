@@ -1,0 +1,14 @@
+[
+    {
+        "image_label": "Sample 1",
+        "image_url": "/sample/1.jpg"
+    },
+    {
+        "image_label": "Sample 2",
+        "image_url": "/sample/2.jpg"
+    },
+    {
+        "image_label": "Sample 3",
+        "image_url": "/sample/3.jpg"
+    }
+]
