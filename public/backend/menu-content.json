@@ -3,12 +3,14 @@
     "index": 0,
     "menu_label": "Beranda",
     "menu_children": [],
-    "icon": "HomeIcon"
+    "icon": "HomeIcon",
+    "url": "/"
   },
   {
     "index": 1,
     "menu_label": "Tentang Kami",
     "icon": "UserGroupIcon",
+    "url": "/about",
     "menu_children": [
       {
         "index": 1,

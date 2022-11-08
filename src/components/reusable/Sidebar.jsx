@@ -18,14 +18,6 @@ export const Sidebar = (props) => {
 
     let navigate = useNavigate();
 
-    const routeChange = (label) => {
-        
-        if (label === "Tentang Kami") {
-            navigate("/about");
-        }
-        navigate("/")
-    }
-
     return (
         <>
             <motion.div
@@ -33,17 +25,17 @@ export const Sidebar = (props) => {
                 animate={{ fillOpacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
                 className="
-            relative
-            mx-auto
-            top-[0rem]
-            w-[95%]
-            grid
-            grid-cols-1
-            z-[2]
-            bg-[#E0E4E7]
-            rounded-b-[3rem]
-            shadow-menu
-            ">
+                            relative
+                            mx-auto
+                            top-[0rem]
+                            w-[95%]
+                            grid
+                            grid-cols-1
+                            z-[2]
+                            bg-[#E0E4E7]
+                            rounded-b-[3rem]
+                            shadow-menu
+                            ">
 
                 {menuItems.map(
                     (item, i) => {
@@ -58,6 +50,7 @@ export const Sidebar = (props) => {
                               flex-row'>
 
                                 <button type='button'
+                                    onClick={() => navigate(item.url)}
                                     key={i}
                                     className="relative                                           
                                                 h-[3.5rem] 
@@ -67,7 +60,6 @@ export const Sidebar = (props) => {
                                                 bg-opacity-100 
                                                 shadow-button
                                                 "
-                                    onClick={routeChange(item.menu_label)}
                                                 >
                                     {iconLibrary[item.icon]}
                                 </button>

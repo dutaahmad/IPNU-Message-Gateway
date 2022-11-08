@@ -2,15 +2,14 @@ import { useState, useCallback, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom";
 import { Sidebar } from './components/reusable/Sidebar'
 import { Navbar } from './components/reusable/Navbar'
-import TextField from './components/reusable/TextField'
-import { MemoizeSubmit } from './components/reusable/Button'
-import Loader from './components/reusable/Loader'
+import { menuContent } from './api/content'
+import MemoLoader from './components/reusable/Loader'
 import Home from './components/Beranda';
-import { About } from './components/AboutUs';
+import { About, NoMatch } from './components/AboutUs';
 
 function App() {
   const [showSidebar, setShowsidebar] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const clickToggle = useCallback(
     () => {
@@ -30,15 +29,12 @@ function App() {
   useEffect(
     () => {
 
-      setLoading(true)
-
       const timeout = setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 1500);
 
       return () => {
         clearTimeout(timeout);
-        setLoading(false);
       };
     }, []
   )
@@ -57,13 +53,13 @@ function App() {
           :
           (null)
       }
-      <Loader when={loading}>
+      <MemoLoader when={loading}>
         <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path="/about" element={ <About /> } />
-          
+          <Route path="/" element={<Home startLoading={startLoading} stopLoading={stopLoading} />} />
+          <Route path="/about" element={<About startLoading={startLoading} stopLoading={stopLoading} />} />
+          <Route path="*" element={<NoMatch />} startLoading={startLoading} stopLoading={stopLoading} />
         </Routes>
-      </Loader>
+      </MemoLoader>
 
     </div>
   )

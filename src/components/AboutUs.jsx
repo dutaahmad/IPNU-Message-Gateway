@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
+import {MemoizeHomeButton} from "./reusable/Button"
 
 const boxStyle = `
                     h-[9rem] 
@@ -19,26 +20,28 @@ const textStyle = `
                     text-3xl
                     `
 
-  export function About() {
-    console.log("rendered")
-    return (
-      <div className={boxStyle}>
-        <h2 className={textStyle}>
-            ABOUT
-        </h2>
-      </div>
-    );
-  }
+export function About() {
 
-  export function NoMatch() {
-    return (
-      <div className={boxStyle}>
-        <h2 className={textStyle}>Nothing!</h2>
-        <p className='mx-auto font-mono font-medium text-slate-800'>
-          {/* <Link to="/">Go to the home page</Link> */}
-          <a href='localhost:3000'>Go to the home page</a>
-        </p>
-      </div>
-    );
-  }
+  return (
+    <div className={boxStyle}>
+      <h2 className={textStyle}>
+        ABOUT
+      </h2>
+    </div>
+  );
+}
+
+export function NoMatch() {
+
+  let navigate = useNavigate()
   
+  return (
+    <div className={boxStyle}>
+      <h2 className={textStyle}>Nothing!</h2>
+      <p className='m-auto font-mono font-medium text-slate-800'>
+        {/* <Link to="/">Go to the home page</Link> */}
+        <MemoizeHomeButton clicked={() => navigate(`/`)} />
+      </p>
+    </div>
+  );
+}
