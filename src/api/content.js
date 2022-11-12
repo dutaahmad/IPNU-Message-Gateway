@@ -1,4 +1,3 @@
-import axios from 'axios'
 import instance from './api-service'
 
 export const menuContent = () => instance.request(
@@ -15,9 +14,17 @@ export const imageContent = () => instance.request(
   }
 )
 
+export let sendMessageJSON = {
+  message: ""
+}
+
 export const sendMessage = () => instance.request(
   {
     method: "post",
-    url: "/messages.json"
+    url: "/message/post",
+    data: sendMessageJSON,
+    headers: {
+      "Content-Type": "application/json"
+    }
   }
 )

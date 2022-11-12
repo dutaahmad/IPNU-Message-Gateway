@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useState, } from 'react'
 import instance from '../../api/api-service'
+import { sendMessage, sendMessageJSON } from '../../api/content'
+
 
 const FormData = () => {
 
@@ -12,6 +14,7 @@ const FormData = () => {
 
     const handleSubmit = (event) => {
         console.log(text)
+        console.log(sendMessage(sendMessageJSON["message"] = text))
         event.preventDefault()
     }
 
